@@ -20,7 +20,7 @@ type DiscoveryRule struct {
 	Name            string           `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Type            string           `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	Key             string           `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Delay           int              `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
+	Delay           string           `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
 	Description     string           `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
 	ItemPrototypes  []ItemPrototype  `xml:"item_prototypes>item_prototype,omitempty" json:"item_prototypes,omitempty" yaml:"item_prototypes,omitempty"`
 	GraphPrototypes []GraphPrototype `xml:"graph_prototypes>graph_prototype,omitempty" json:"graph_prototypes,omitempty" yaml:"graph_prototypes,omitempty"`
@@ -64,7 +64,7 @@ type Item struct {
 	Name          string        `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Type          string        `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	Key           string        `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Delay         int           `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
+	Delay         string        `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
 	History       string        `xml:"history,omitempty" json:"history,omitempty" yaml:"history,omitempty"`
 	ValueType     string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
 	Units         string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
@@ -84,7 +84,7 @@ type ItemPrototype struct {
 	Name          string        `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Type          string        `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	Key           string        `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Delay         int           `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
+	Delay         string        `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
 	History       string        `xml:"history,omitempty" json:"history,omitempty" yaml:"history,omitempty"`
 	ValueType     string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
 	Units         string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
