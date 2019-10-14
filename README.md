@@ -5,8 +5,12 @@
 [![go report card](https://goreportcard.com/badge/github.com/monitoringartist/go-zabbix "go report card")](https://goreportcard.com/report/github.com/monitoringartist/go-zabbix)
 [![GPL license](https://img.shields.io/badge/license-GPL-brightgreen.svg)](https://opensource.org/licenses/gpl-license)
 
-Available structs
+Available structs:
 - for XML/JSON/YAML Zabbix template (example usage https://github.com/monitoringartist/zabbix-template-converter)
+
+Supported Zabbix versions:
+- 4.4 - branch v44
+- 4.0 - branch v40
 
 # Author
 
