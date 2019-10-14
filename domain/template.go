@@ -72,7 +72,7 @@ type Item struct {
 	Applications  []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
 	Preprocessing []Step        `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
 	MasterItem    MasterItem    `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
-	Trends        int           `xml:"trends,omitempty" json:"trends,omitempty" yaml:"trends,omitempty"`
+	Trends        string        `xml:"trends,omitempty" json:"trends,omitempty" yaml:"trends,omitempty"`
 	URL           string        `xml:"url,omitempty" json:"url,omitempty" yaml:"url,omitempty"`
 	RetrieveMode  string        `xml:"retrieve_mode,omitempty" json:"retrieve_mode,omitempty" yaml:"retrieve_mode,omitempty"`
 	Triggers      []Trigger     `xml:"triggers>trigger,omitempty" json:"triggers,omitempty" yaml:"triggers,omitempty"`
