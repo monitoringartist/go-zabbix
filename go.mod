@@ -1,4 +1,4 @@
-module github.com/monitoringartist/go-zabbix/domain.v44
+module github.com/monitoringartist/go-zabbix/v44
 
 go 1.13
 

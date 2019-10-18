@@ -19,6 +19,8 @@ type Dependency struct {
 type DiscoveryRule struct {
 	Name            string           `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Type            string           `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	SnmpCommunity   string           `xml:"snmp_community,omitempty" json:"snmp_community,omitempty" yaml:"snmp_community,omitempty"`
+	SnmpOid         string           `xml:"snmp_oid,omitempty" json:"snmp_oid,omitempty" yaml:"snmp_oid,omitempty"`
 	Key             string           `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
 	Delay           string           `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
 	Description     string           `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
@@ -37,7 +39,7 @@ type GItem struct {
 // Graph representation
 type Graph struct {
 	Name       string      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-        Type       string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	Type       string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	GraphItems []GraphItem `xml:"graph_items>graph_item,omitempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
 }
 
@@ -82,17 +84,20 @@ type Item struct {
 
 // ItemPrototype representation
 type ItemPrototype struct {
-	Name          string        `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Type          string        `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	Key           string        `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Delay         string        `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
-	History       string        `xml:"history,omitempty" json:"history,omitempty" yaml:"history,omitempty"`
-	ValueType     string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
-	Units         string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
-	Description   string        `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
-	Applications  []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
-	Preprocessing []Step        `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
-	MasterItem    MasterItem    `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
+	Name              string        `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Type              string        `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	Key               string        `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
+	Delay             string        `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
+	History           string        `xml:"history,omitempty" json:"history,omitempty" yaml:"history,omitempty"`
+	Trends            string        `xml:"trends,omitempty" json:"trends,omitempty" yaml:"trends,omitempty"`
+	ValueType         string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
+	TriggerPrototypes []Trigger     `xml:"trigger_prototypes>trigger_prototype,omitempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
+	Units             string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
+	Description       string        `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
+	Applications      []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
+	ValueMap          ValueMap      `xml:"valuemap,omitempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
+	Preprocessing     []Step        `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
+	MasterItem        MasterItem    `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
 }
 
 // Macro representation
