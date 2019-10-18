@@ -37,7 +37,7 @@ type GItem struct {
 // Graph representation
 type Graph struct {
 	Name       string      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-        Type       string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	Type       string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	GraphItems []GraphItem `xml:"graph_items>graph_item,omitempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
 }
 
