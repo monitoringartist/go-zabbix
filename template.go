@@ -36,9 +36,17 @@ type GItem struct {
 
 // Graph representation
 type Graph struct {
-	Name       string      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Type       string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	GraphItems []GraphItem `xml:"graph_items>graph_item,omitempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
+	Name           string      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Width          int         `xml:"width,omitempty" json:"width,omitempty" yaml:"width,omitempty"`
+	Height         int         `xml:"height,omitempty" json:"height,omitempty" yaml:"height,omitempty"`
+	Yaxismin       float32     `xml:"yaxismin" json:"yaxismin,omitempty" yaml:"yaxismin,omitempty"`
+	Yaxismax       float32     `xml:"yaxismax" json:"yaxismax,omitempty" yaml:"yaxismax,omitempty"`
+	ShowWorkPeriod int         `xml:"show_work_period,omitempty" json:"show_work_period,omitempty" yaml:"show_work_period,omitempty"`
+	ShowTriggers   int         `xml:"show_triggers,omitempty" json:"show_triggers,omitempty" yaml:"show_triggers,omitempty"`
+	Type           string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	ShowLegend     int         `xml:"show_legend" json:"show_legend,omitempty" yaml:"show_legend,omitempty"`
+	Show3d         int         `xml:"show_3d" json:"show_3d,omitempty" yaml:"show_3d,omitempty"`
+	GraphItems     []GraphItem `xml:"graph_items>graph_item,omitempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
 }
 
 // GraphItem representation
@@ -46,6 +54,9 @@ type GraphItem struct {
 	Sortorder int    `xml:"sortorder,omitempty" json:"sortorder,omitempty" yaml:"sortorder,omitempty"`
 	Drawtype  string `xml:"drawtype,omitempty" json:"drawtype,omitempty" yaml:"drawtype,omitempty"`
 	Color     string `xml:"color,omitempty" json:"color,omitempty" yaml:"color,omitempty"`
+	Yaxisside int    `xml:"yaxisside" json:"yaxisside,omitempty" yaml:"yaxisside,omitempty"`
+	CalcFnc   int    `xml:"calc_fnc" json:"calc_fnc,omitempty" yaml:"calc_fnc,omitempty"`
+	Type      int    `xml:"type" json:"type,omitempty" yaml:"type,omitempty"`
 	Item      GItem  `xml:"item,omitempty" json:"item,omitempty" yaml:"item,omitempty"`
 }
 
