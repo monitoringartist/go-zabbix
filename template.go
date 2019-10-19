@@ -24,19 +24,19 @@ type Dependency struct {
 
 // DiscoveryRule representation
 type DiscoveryRule struct {
-	Name            string           `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Type            string           `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	SnmpCommunity   string           `xml:"snmp_community,omitempty" json:"snmp_community,omitempty" yaml:"snmp_community,omitempty"`
-	SnmpOid         string           `xml:"snmp_oid,omitempty" json:"snmp_oid,omitempty" yaml:"snmp_oid,omitempty"`
-	Key             string           `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Delay           string           `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
-	Description     string           `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
-	Filter          Filter           `xml:"filter,omitempty" json:"filter,omitempty" yaml:"filter,omitempty"`
-	ItemPrototypes  []ItemPrototype  `xml:"item_prototypes>item_prototype,omitempty" json:"item_prototypes,omitempty" yaml:"item_prototypes,omitempty"`
-	ItemPrototypes  []Trigger        `xml:"trigger_prototypes>trigger_prototype,omitempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
-	GraphPrototypes []GraphPrototype `xml:"graph_prototypes>graph_prototype,omitempty" json:"graph_prototypes,omitempty" yaml:"graph_prototypes,omitempty"`
-	MasterItem      MasterItem       `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
-	Preprocessing   []Step           `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
+	Name              string           `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Type              string           `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	SnmpCommunity     string           `xml:"snmp_community,omitempty" json:"snmp_community,omitempty" yaml:"snmp_community,omitempty"`
+	SnmpOid           string           `xml:"snmp_oid,omitempty" json:"snmp_oid,omitempty" yaml:"snmp_oid,omitempty"`
+	Key               string           `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
+	Delay             string           `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
+	Description       string           `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
+	Filter            Filter           `xml:"filter,omitempty" json:"filter,omitempty" yaml:"filter,omitempty"`
+	ItemPrototypes    []ItemPrototype  `xml:"item_prototypes>item_prototype,omitempty" json:"item_prototypes,omitempty" yaml:"item_prototypes,omitempty"`
+	TriggerPrototypes []Trigger        `xml:"trigger_prototypes>trigger_prototype,omitempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
+	GraphPrototypes   []GraphPrototype `xml:"graph_prototypes>graph_prototype,omitempty" json:"graph_prototypes,omitempty" yaml:"graph_prototypes,omitempty"`
+	MasterItem        MasterItem       `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
+	Preprocessing     []Step           `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
 }
 
 // Filter representation
@@ -117,6 +117,7 @@ type ItemPrototype struct {
 	Units             string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
 	Params            string        `xml:"params,omitempty" json:"params,omitempty" yaml:"params,omitempty"`
 	Description       string        `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
+	InventoryLink     string        `xml:"inventory_link,omitempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
 	Applications      []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
 	ValueMap          ValueMap      `xml:"valuemap,omitempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
 	TriggerPrototypes []Trigger     `xml:"trigger_prototypes>trigger_prototype,omitempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
