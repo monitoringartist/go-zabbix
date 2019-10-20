@@ -38,6 +38,7 @@ type DiscoveryRule struct {
 	TriggerPrototypes []Trigger        `xml:"trigger_prototypes>trigger_prototype,omitempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
 	GraphPrototypes   []GraphPrototype `xml:"graph_prototypes>graph_prototype,omitempty" json:"graph_prototypes,omitempty" yaml:"graph_prototypes,omitempty"`
 	MasterItem        MasterItem       `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
+	LldMacroPaths     []LldMacroPath   `xml:"lld_macro_paths>lld_macro_path,omitempty" json:"lld_macro_paths,omitempty" yaml:"lld_macro_paths,omitempty"`
 	Preprocessing     []Step           `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
 }
 
@@ -79,8 +80,12 @@ type GraphItem struct {
 // GraphPrototype representation
 type GraphPrototype struct {
 	Name       string      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Type       string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	Width      int         `xml:"width,omitempty" json:"width,omitempty" yaml:"width,omitempty"`
+	Height     int         `xml:"height,omitempty" json:"height,omitempty" yaml:"height,omitempty"`
 	YminType1  string      `xml:"ymin_type_1,omitempty" json:"ymin_type_1,omitempty" yaml:"ymin_type_1,omitempty"`
 	YmaxType1  string      `xml:"ymax_type_1,omitempty" json:"ymax_type_1,omitempty" yaml:"ymax_type_1,omitempty"`
+	Show3d     string      `xml:"show_3d,omitempty" json:"show_3d,omitempty" yaml:"show_3d,omitempty"`
 	GraphItems []GraphItem `xml:"graph_items>graph_item,omitempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
 }
 
@@ -139,6 +144,12 @@ type ItemPrototype struct {
 	RetrieveMode          string        `xml:"retrieve_mode,omitempty" json:"retrieve_mode,omitempty" yaml:"retrieve_mode,omitempty"`
 }
 
+// LldMacroPath representation
+type LldMacroPath struct {
+	LldMacro string `xml:"lld_macro,omitempty" json:"lld_macro,omitempty" yaml:"lld_macro,omitempty"`
+	Path     string `xml:"path,omitempty" json:"path,omitempty" yaml:"path,omitempty"`
+}
+
 // Macro representation
 type Macro struct {
 	Macro       string `xml:"macro,omitempty" json:"macro,omitempty" yaml:"macro,omitempty"`
@@ -160,6 +171,7 @@ type MasterItem struct {
 // Resource representation
 type Resource struct {
 	Name string `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Key  `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
 	Host string `xml:"host,omitempty" json:"host,omitempty" yaml:"host,omitempty"`
 }
 
