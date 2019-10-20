@@ -98,14 +98,21 @@ type GraphItem struct {
 
 // GraphPrototype representation
 type GraphPrototype struct {
-	Name       string      `xml:"name,allowempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Width      int         `xml:"width,allowempty" json:"width,omitempty" yaml:"width,omitempty"`
-	Height     int         `xml:"height,allowempty" json:"height,omitempty" yaml:"height,omitempty"`
-	Type       string      `xml:"type,allowempty" json:"type,omitempty" yaml:"type,omitempty"`
-	YminType1  string      `xml:"ymin_type_1,allowempty" json:"ymin_type_1,omitempty" yaml:"ymin_type_1,omitempty"`
-	YmaxType1  string      `xml:"ymax_type_1,allowempty" json:"ymax_type_1,omitempty" yaml:"ymax_type_1,omitempty"`
-	Show3d     string      `xml:"show_3d,allowempty" json:"show_3d,omitempty" yaml:"show_3d,omitempty"`
-	GraphItems []GraphItem `xml:"graph_items>graph_item,allowempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
+	Name           string      `xml:"name,allowempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Width          int         `xml:"width,allowempty" json:"width,omitempty" yaml:"width,omitempty"`
+	Height         int         `xml:"height,allowempty" json:"height,omitempty" yaml:"height,omitempty"`
+	Yaxismin       float32     `xml:"yaxismin,allowempty" json:"yaxismin,omitempty" yaml:"yaxismin,omitempty"`
+	Yaxismax       float32     `xml:"yaxismax,allowempty" json:"yaxismax,omitempty" yaml:"yaxismax,omitempty"`
+	ShowWorkPeriod int         `xml:"show_work_period,allowempty" json:"show_work_period,omitempty" yaml:"show_work_period,omitempty"`
+	ShowTriggers   int         `xml:"show_triggers,allowempty" json:"show_triggers,omitempty" yaml:"show_triggers,omitempty"`
+	Type           string      `xml:"type,allowempty" json:"type,omitempty" yaml:"type,omitempty"`
+	ShowLegend     int         `xml:"show_legend,allowempty" json:"show_legend,omitempty" yaml:"show_legend,omitempty"`
+	Show3d         int         `xml:"show_3d,allowempty" json:"show_3d,omitempty" yaml:"show_3d,omitempty"`
+	PercentLeft    float32     `xml:"percent_left,allowempty" json:"percent_left,omitempty" yaml:"percent_left,omitempty"`
+	PercentRight   float32     `xml:"percent_right,allowempty" json:"percent_right,omitempty" yaml:"percent_right,omitempty"`
+	YminType1      string      `xml:"ymin_type_1,allowempty" json:"ymin_type_1,omitempty" yaml:"ymin_type_1,omitempty"`
+	YmaxType1      string      `xml:"ymax_type_1,allowempty" json:"ymax_type_1,omitempty" yaml:"ymax_type_1,omitempty"`
+	GraphItems     []GraphItem `xml:"graph_items>graph_item,allowempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
 }
 
 // Group representation
