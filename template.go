@@ -233,6 +233,7 @@ type Screen struct {
 type ScreenItem struct {
 	Resourcetype int      `xml:"resourcetype" json:"resourcetype,omitempty" yaml:"resourcetype,omitempty"`
 	Style        int      `xml:"style" json:"style,omitempty" yaml:"style,omitempty"`
+	Resource     Resource `xml:"resource,omitempty" json:"resource,omitempty" yaml:"resource,omitempty"`
 	Width        int      `xml:"width,omitempty" json:"width,omitempty" yaml:"width,omitempty"`
 	Height       int      `xml:"height,omitempty" json:"height,omitempty" yaml:"height,omitempty"`
 	X            int      `xml:"x" json:"x" yaml:"x"`
@@ -245,9 +246,8 @@ type ScreenItem struct {
 	Dynamic      int      `xml:"dynamic" json:"dynamic,omitempty" yaml:"dynamic,omitempty"`
 	SortTriggers int      `xml:"sort_triggers" json:"sort_triggers,omitempty" yaml:"sort_triggers,omitempty"`
 	URL          string   `xml:"url" json:"url,omitempty" yaml:"url,omitempty"`
-	Resource     Resource `xml:"resource,omitempty" json:"resource,omitempty" yaml:"resource,omitempty"`
-	MaxColumns   int      `xml:"max_columns,omitempty" json:"max_columns,omitempty" yaml:"max_columns,omitempty"`
 	Application  string   `xml:"application" json:"application,omitempty" yaml:"application,omitempty"`
+	MaxColumns   int      `xml:"max_columns,omitempty" json:"max_columns,omitempty" yaml:"max_columns,omitempty"`
 }
 
 // Step representation
