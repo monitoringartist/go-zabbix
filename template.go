@@ -9,23 +9,43 @@ type Application struct {
 	Name string `xml:"name" json:"name" yaml:"name"`
 }
 
+// Condition representation
+type Condition struct {
+	Macro     string `xml:"macro,omitempty" json:"macro,omitempty" yaml:"macro,omitempty"`
+	Value     string `xml:"value,omitempty" json:"value,omitempty" yaml:"value,omitempty"`
+	Operator  string `xml:"operator,omitempty" json:"operator,omitempty" yaml:"operator,omitempty"`
+	Formulaid string `xml:"formulaid,omitempty" json:"formulaid,omitempty" yaml:"formulaid,omitempty"`
+}
+
 // Dependency representation
 type Dependency struct {
-	Name       string `xml:"name"`
-	Expression string `xml:"expression"`
+	Name               string `xml:"name"`
+	Expression         string `xml:"expression"`
+	RecoveryExpression string `xml:"recovery_expression,omitempty" json:"recovery_expression,omitempty" yaml:"recovery_expression,omitempty"`
 }
 
 // DiscoveryRule representation
 type DiscoveryRule struct {
-	Name            string           `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Type            string           `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	Key             string           `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Delay           string           `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
-	Description     string           `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
-	ItemPrototypes  []ItemPrototype  `xml:"item_prototypes>item_prototype,omitempty" json:"item_prototypes,omitempty" yaml:"item_prototypes,omitempty"`
-	GraphPrototypes []GraphPrototype `xml:"graph_prototypes>graph_prototype,omitempty" json:"graph_prototypes,omitempty" yaml:"graph_prototypes,omitempty"`
-	MasterItem      MasterItem       `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
-	Preprocessing   []Step           `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
+	Name              string           `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Type              string           `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	SnmpCommunity     string           `xml:"snmp_community,omitempty" json:"snmp_community,omitempty" yaml:"snmp_community,omitempty"`
+	SnmpOid           string           `xml:"snmp_oid,omitempty" json:"snmp_oid,omitempty" yaml:"snmp_oid,omitempty"`
+	Key               string           `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
+	Delay             string           `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
+	Filter            Filter           `xml:"filter,omitempty" json:"filter,omitempty" yaml:"filter,omitempty"`
+	Description       string           `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
+	ItemPrototypes    []ItemPrototype  `xml:"item_prototypes>item_prototype,omitempty" json:"item_prototypes,omitempty" yaml:"item_prototypes,omitempty"`
+	TriggerPrototypes []Trigger        `xml:"trigger_prototypes>trigger_prototype,omitempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
+	GraphPrototypes   []GraphPrototype `xml:"graph_prototypes>graph_prototype,omitempty" json:"graph_prototypes,omitempty" yaml:"graph_prototypes,omitempty"`
+	MasterItem        MasterItem       `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
+	LldMacroPaths     []LldMacroPath   `xml:"lld_macro_paths>lld_macro_path,omitempty" json:"lld_macro_paths,omitempty" yaml:"lld_macro_paths,omitempty"`
+	Preprocessing     []Step           `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
+}
+
+// Filter representation
+type Filter struct {
+	Evaltype   string      `xml:"evaltype,omitempty" json:"evaltype,omitempty" yaml:"evaltype,omitempty"`
+	Conditions []Condition `xml:"conditions>condition,omitempty" json:"conditions,omitempty" yaml:"conditions,omitempty"`
 }
 
 // GItem representation
@@ -36,17 +56,14 @@ type GItem struct {
 
 // Graph representation
 type Graph struct {
-	Name           string      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Width          int         `xml:"width,omitempty" json:"width,omitempty" yaml:"width,omitempty"`
-	Height         int         `xml:"height,omitempty" json:"height,omitempty" yaml:"height,omitempty"`
-	Yaxismin       float32     `xml:"yaxismin" json:"yaxismin,omitempty" yaml:"yaxismin,omitempty"`
-	Yaxismax       float32     `xml:"yaxismax" json:"yaxismax,omitempty" yaml:"yaxismax,omitempty"`
-	ShowWorkPeriod int         `xml:"show_work_period,omitempty" json:"show_work_period,omitempty" yaml:"show_work_period,omitempty"`
-	ShowTriggers   int         `xml:"show_triggers,omitempty" json:"show_triggers,omitempty" yaml:"show_triggers,omitempty"`
-	Type           string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	ShowLegend     int         `xml:"show_legend" json:"show_legend,omitempty" yaml:"show_legend,omitempty"`
-	Show3d         int         `xml:"show_3d" json:"show_3d,omitempty" yaml:"show_3d,omitempty"`
-	GraphItems     []GraphItem `xml:"graph_items>graph_item,omitempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
+	Name       string      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Width      int         `xml:"width,omitempty" json:"width,omitempty" yaml:"width,omitempty"`
+	Height     int         `xml:"height,omitempty" json:"height,omitempty" yaml:"height,omitempty"`
+	Type       string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	YminType1  string      `xml:"ymin_type_1,omitempty" json:"ymin_type_1,omitempty" yaml:"ymin_type_1,omitempty"`
+	YmaxType1  string      `xml:"ymax_type_1,omitempty" json:"ymax_type_1,omitempty" yaml:"ymax_type_1,omitempty"`
+	Show3d     string      `xml:"show_3d,omitempty" json:"show_3d,omitempty" yaml:"show_3d,omitempty"`
+	GraphItems []GraphItem `xml:"graph_items>graph_item,omitempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
 }
 
 // GraphItem representation
@@ -54,15 +71,21 @@ type GraphItem struct {
 	Sortorder int    `xml:"sortorder,omitempty" json:"sortorder,omitempty" yaml:"sortorder,omitempty"`
 	Drawtype  string `xml:"drawtype,omitempty" json:"drawtype,omitempty" yaml:"drawtype,omitempty"`
 	Color     string `xml:"color,omitempty" json:"color,omitempty" yaml:"color,omitempty"`
-	Yaxisside int    `xml:"yaxisside" json:"yaxisside,omitempty" yaml:"yaxisside,omitempty"`
-	CalcFnc   int    `xml:"calc_fnc" json:"calc_fnc,omitempty" yaml:"calc_fnc,omitempty"`
-	Type      int    `xml:"type" json:"type,omitempty" yaml:"type,omitempty"`
+	Yaxisside string `xml:"yaxisside,omitempty" json:"yaxisside,omitempty" yaml:"yaxisside,omitempty"`
+	CalcFnc   string `xml:"calc_fnc,omitempty" json:"calc_fnc,omitempty" yaml:"calc_fnc,omitempty"`
+	Type      string `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
 	Item      GItem  `xml:"item,omitempty" json:"item,omitempty" yaml:"item,omitempty"`
 }
 
 // GraphPrototype representation
 type GraphPrototype struct {
 	Name       string      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Width      int         `xml:"width,omitempty" json:"width,omitempty" yaml:"width,omitempty"`
+	Height     int         `xml:"height,omitempty" json:"height,omitempty" yaml:"height,omitempty"`
+	Type       string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	YminType1  string      `xml:"ymin_type_1,omitempty" json:"ymin_type_1,omitempty" yaml:"ymin_type_1,omitempty"`
+	YmaxType1  string      `xml:"ymax_type_1,omitempty" json:"ymax_type_1,omitempty" yaml:"ymax_type_1,omitempty"`
+	Show3d     string      `xml:"show_3d,omitempty" json:"show_3d,omitempty" yaml:"show_3d,omitempty"`
 	GraphItems []GraphItem `xml:"graph_items>graph_item,omitempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
 }
 
@@ -75,14 +98,23 @@ type Group struct {
 type Item struct {
 	Name          string        `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Type          string        `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	SnmpCommunity string        `xml:"snmp_community,omitempty" json:"snmp_community,omitempty" yaml:"snmp_community,omitempty"`
+	SnmpOid       string        `xml:"snmp_oid,omitempty" json:"snmp_oid,omitempty" yaml:"snmp_oid,omitempty"`
 	Key           string        `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
 	Delay         string        `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
 	History       string        `xml:"history,omitempty" json:"history,omitempty" yaml:"history,omitempty"`
+	Status        string        `xml:"status,omitempty" json:"status,omitempty" yaml:"status,omitempty"`
 	Trends        string        `xml:"trends,omitempty" json:"trends,omitempty" yaml:"trends,omitempty"`
 	ValueType     string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
+	Authtype      string        `xml:"authtype,omitempty" json:"authtype,omitempty" yaml:"authtype,omitempty"`
+	Username      string        `xml:"username,omitempty" json:"username,omitempty" yaml:"username,omitempty"`
+	Password      string        `xml:"password,omitempty" json:"password,omitempty" yaml:"password,omitempty"`
 	Units         string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
+	Params        string        `xml:"params,omitempty" json:"params,omitempty" yaml:"params,omitempty"`
 	Description   string        `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
+	InventoryLink string        `xml:"inventory_link,omitempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
 	Applications  []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
+	Logtimefmt    string        `xml:"logtimefmt,omitempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
 	ValueMap      ValueMap      `xml:"valuemap,omitempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
 	Preprocessing []Step        `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
 	MasterItem    MasterItem    `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
@@ -93,17 +125,37 @@ type Item struct {
 
 // ItemPrototype representation
 type ItemPrototype struct {
-	Name          string        `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Type          string        `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	Key           string        `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Delay         string        `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
-	History       string        `xml:"history,omitempty" json:"history,omitempty" yaml:"history,omitempty"`
-	ValueType     string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
-	Units         string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
-	Description   string        `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
-	Applications  []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
-	Preprocessing []Step        `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
-	MasterItem    MasterItem    `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
+	Name                  string        `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Type                  string        `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	SnmpCommunity         string        `xml:"snmp_community,omitempty" json:"snmp_community,omitempty" yaml:"snmp_community,omitempty"`
+	SnmpOid               string        `xml:"snmp_oid,omitempty" json:"snmp_oid,omitempty" yaml:"snmp_oid,omitempty"`
+	Key                   string        `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
+	Delay                 string        `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
+	History               string        `xml:"history,omitempty" json:"history,omitempty" yaml:"history,omitempty"`
+	Trends                string        `xml:"trends,omitempty" json:"trends,omitempty" yaml:"trends,omitempty"`
+	ValueType             string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
+	Authtype              string        `xml:"authtype,omitempty" json:"authtype,omitempty" yaml:"authtype,omitempty"`
+	Username              string        `xml:"username,omitempty" json:"username,omitempty" yaml:"username,omitempty"`
+	Password              string        `xml:"password,omitempty" json:"password,omitempty" yaml:"password,omitempty"`
+	Units                 string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
+	Params                string        `xml:"params,omitempty" json:"params,omitempty" yaml:"params,omitempty"`
+	Description           string        `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
+	ApplicationPrototypes []Application `xml:"application_prototypes>application_prototype,omitempty" json:"application_prototypes,omitempty" yaml:"application_prototypes,omitempty"`
+	InventoryLink         string        `xml:"inventory_link,omitempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
+	Applications          []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
+	Logtimefmt            string        `xml:"logtimefmt,omitempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
+	ValueMap              ValueMap      `xml:"valuemap,omitempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
+	Preprocessing         []Step        `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
+	MasterItem            MasterItem    `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
+	TriggerPrototypes     []Trigger     `xml:"trigger_prototypes>trigger_prototype,omitempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
+	URL                   string        `xml:"url,omitempty" json:"url,omitempty" yaml:"url,omitempty"`
+	RetrieveMode          string        `xml:"retrieve_mode,omitempty" json:"retrieve_mode,omitempty" yaml:"retrieve_mode,omitempty"`
+}
+
+// LldMacroPath representation
+type LldMacroPath struct {
+	LldMacro string `xml:"lld_macro,omitempty" json:"lld_macro,omitempty" yaml:"lld_macro,omitempty"`
+	Path     string `xml:"path,omitempty" json:"path,omitempty" yaml:"path,omitempty"`
 }
 
 // Macro representation
@@ -127,6 +179,7 @@ type MasterItem struct {
 // Resource representation
 type Resource struct {
 	Name string `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Key  string `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
 	Host string `xml:"host,omitempty" json:"host,omitempty" yaml:"host,omitempty"`
 }
 
@@ -161,8 +214,10 @@ type ScreenItem struct {
 
 // Step representation
 type Step struct {
-	Type   string `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	Params string `xml:"params" json:"params,omitempty" yaml:"params,omitempty"`
+	Type               string `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
+	Params             string `xml:"params" json:"params,omitempty" yaml:"params,omitempty"`
+	ErrorHandler       string `xml:"error_handler,omitempty" json:"error_handler,omitempty" yaml:"error_handler,omitempty"`
+	ErrorHandlerParams string `xml:"error_handler_params,omitempty" json:"error_handler_params,omitempty" yaml:"error_handler_params,omitempty"`
 }
 
 // Template representation
@@ -170,6 +225,7 @@ type Template struct {
 	Template       string          `xml:"template,omitempty" json:"template,omitempty" yaml:"template,omitempty"`
 	Name           string          `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
 	Description    string          `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
+	Templates      []Template      `xml:"templates>template,omitempty" json:"templates,omitempty" yaml:"templates,omitempty"`
 	Groups         []Group         `xml:"groups>group,omitempty" json:"groups,omitempty" yaml:"groups,omitempty"`
 	Applications   []Application   `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
 	Items          []Item          `xml:"items>item,omitempty" json:"items,omitempty" yaml:"items,omitempty"`
@@ -180,13 +236,15 @@ type Template struct {
 
 // Trigger representation
 type Trigger struct {
-	Expression   string       `xml:"expression,omitempty" json:"expression,omitempty" yaml:"expression,omitempty"`
-	RecoveryMode string       `xml:"recovery_mode,omitempty" json:"recovery_mode,omitempty" yaml:"recovery_mode,omitempty"`
-	Name         string       `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Priority     string       `xml:"priority,omitempty" json:"priority,omitempty" yaml:"priority,omitempty"`
-	Description  string       `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
-	ManualClose  string       `xml:"manual_close,omitempty" json:"manual_close,omitempty" yaml:"manual_close,omitempty"`
-	Dependencies []Dependency `xml:"dependencies>dependency,omitempty" json:"dependencies,omitempty" yaml:"dependencies,omitempty"`
+	Expression         string       `xml:"expression,omitempty" json:"expression,omitempty" yaml:"expression,omitempty"`
+	RecoveryMode       string       `xml:"recovery_mode,omitempty" json:"recovery_mode,omitempty" yaml:"recovery_mode,omitempty"`
+	RecoveryExpression string       `xml:"recovery_expression,omitempty" json:"recovery_expression,omitempty" yaml:"recovery_expression,omitempty"`
+	Name               string       `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Opdata             string       `xml:"opdata,omitempty" json:"opdata,omitempty" yaml:"opdata,omitempty"`
+	Priority           string       `xml:"priority,omitempty" json:"priority,omitempty" yaml:"priority,omitempty"`
+	Description        string       `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
+	ManualClose        string       `xml:"manual_close,omitempty" json:"manual_close,omitempty" yaml:"manual_close,omitempty"`
+	Dependencies       []Dependency `xml:"dependencies>dependency,omitempty" json:"dependencies,omitempty" yaml:"dependencies,omitempty"`
 }
 
 // ValueMap representation
@@ -202,6 +260,7 @@ type ZabbixExport struct {
 	Date      string     `xml:"date,omitempty" json:"date,omitempty" yaml:"date,omitempty"`
 	Groups    []Group    `xml:"groups>group,omitempty" json:"groups,omitempty" yaml:"groups,omitempty"`
 	Templates []Template `xml:"templates>template,omitempty" json:"templates,omitempty" yaml:"templates,omitempty"`
+	Triggers  []Trigger  `xml:"triggers>trigger,omitempty" json:"triggers,omitempty" yaml:"triggers,omitempty"`
 	Graphs    []Graph    `xml:"graphs>graph,omitempty" json:"graphs,omitempty" yaml:"graphs,omitempty"`
 	ValueMaps []ValueMap `xml:"value_maps>value_map,omitempty" json:"value_maps,omitempty" yaml:"value_maps,omitempty"`
 }
