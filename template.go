@@ -31,8 +31,8 @@ type DiscoveryRule struct {
 	SnmpOid           string           `xml:"snmp_oid,omitempty" json:"snmp_oid,omitempty" yaml:"snmp_oid,omitempty"`
 	Key               string           `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
 	Delay             string           `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
-	Description       string           `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
 	Filter            Filter           `xml:"filter,omitempty" json:"filter,omitempty" yaml:"filter,omitempty"`
+	Description       string           `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
 	ItemPrototypes    []ItemPrototype  `xml:"item_prototypes>item_prototype,omitempty" json:"item_prototypes,omitempty" yaml:"item_prototypes,omitempty"`
 	TriggerPrototypes []Trigger        `xml:"trigger_prototypes>trigger_prototype,omitempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
 	GraphPrototypes   []GraphPrototype `xml:"graph_prototypes>graph_prototype,omitempty" json:"graph_prototypes,omitempty" yaml:"graph_prototypes,omitempty"`
