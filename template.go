@@ -115,22 +115,31 @@ type Item struct {
 	Snmpv3Authpassphrase string        `xml:"snmpv3_authpassphrase,allowempty" json:"snmpv3_authpassphrase,omitempty" yaml:"snmpv3_authpassphrase,omitempty"`
 	Snmpv3Privprotocol   int           `xml:"snmpv3_privprotocol,allowempty" json:"snmpv3_privprotocol,omitempty" yaml:"snmpv3_privprotocol,omitempty"`
 	Snmpv3Privpassphrase string        `xml:"snmpv3_privpassphrase,allowempty" json:"snmpv3_privpassphrase,omitempty" yaml:"snmpv3_privpassphrase,omitempty"`
+	Params               string        `xml:"params,allowempty" json:"params,omitempty" yaml:"params,omitempty"`
+	IpmiSensor           string        `xml:"ipmi_sensor,allowempty" json:"ipmi_sensor,omitempty" yaml:"ipmi_sensor,omitempty"`
 	Authtype             string        `xml:"authtype,allowempty" json:"authtype,omitempty" yaml:"authtype,omitempty"`
 	Username             string        `xml:"username,allowempty" json:"username,omitempty" yaml:"username,omitempty"`
 	Password             string        `xml:"password,allowempty" json:"password,omitempty" yaml:"password,omitempty"`
 	Publickey            string        `xml:"publickey,allowempty" json:"publickey,omitempty" yaml:"publickey,omitempty"`
 	Privatekey           string        `xml:"privatekey,allowempty" json:"privatekey,omitempty" yaml:"privatekey,omitempty"`
 	Port                 string        `xml:"port,allowempty" json:"port,omitempty" yaml:"port,omitempty"`
-	Params               string        `xml:"params,allowempty" json:"params,omitempty" yaml:"params,omitempty"`
 	Description          string        `xml:"description,allowempty" json:"decription,omitempty" yaml:"description,omitempty"`
 	InventoryLink        string        `xml:"inventory_link,allowempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
 	Applications         []Application `xml:"applications>application,allowempty" json:"applications,omitempty" yaml:"applications,omitempty"`
 	ValueMap             ValueMap      `xml:"valuemap,allowempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
 	Logtimefmt           string        `xml:"logtimefmt,allowempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
 	Preprocessing        []Step        `xml:"preprocessing>step,allowempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
-	MasterItem           MasterItem    `xml:"master_item,allowempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
 	URL                  string        `xml:"url,allowempty" json:"url,omitempty" yaml:"url,omitempty"`
 	RetrieveMode         string        `xml:"retrieve_mode,allowempty" json:"retrieve_mode,omitempty" yaml:"retrieve_mode,omitempty"`
+	RequestMethod        int           `xml:"request_method,allowempty" json:"request_method,omitempty" yaml:"request_method,omitempty"`
+	OutputFormat         int           `xml:"output_format,allowempty" json:"output_format,omitempty" yaml:"output_format,omitempty"`
+	AllowTraps           int           `xml:"allow_traps,allowempty" json:"allow_traps,omitempty" yaml:"allow_traps,omitempty"`
+	SslCertFile          string        `xml:"ssl_cert_file,allowempty" json:"ssl_cert_file,omitempty" yaml:"ssl_cert_file,omitempty"`
+	SslKeyFile           string        `xml:"ssl_key_file,allowempty" json:"ssl_key_file,omitempty" yaml:"ssl_key_file,omitempty"`
+	SslKeyPassword       string        `xml:"ssl_key_password,allowempty" json:"ssl_key_password,omitempty" yaml:"ssl_key_password,omitempty"`
+	VerifyPeer           int           `xml:"verify_peer,allowempty" json:"verify_peer,omitempty" yaml:"verify_peer,omitempty"`
+	VerifyHost           int           `xml:"verify_host,allowempty" json:"verify_host,omitempty" yaml:"verify_host,omitempty"`
+	MasterItem           MasterItem    `xml:"master_item,allowempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
 	Triggers             []Trigger     `xml:"triggers>trigger,allowempty" json:"triggers,omitempty" yaml:"triggers,omitempty"`
 }
 
@@ -155,13 +164,14 @@ type ItemPrototype struct {
 	Snmpv3Authpassphrase  string        `xml:"snmpv3_authpassphrase,allowempty" json:"snmpv3_authpassphrase,omitempty" yaml:"snmpv3_authpassphrase,omitempty"`
 	Snmpv3Privprotocol    int           `xml:"snmpv3_privprotocol,allowempty" json:"snmpv3_privprotocol,omitempty" yaml:"snmpv3_privprotocol,omitempty"`
 	Snmpv3Privpassphrase  string        `xml:"snmpv3_privpassphrase,allowempty" json:"snmpv3_privpassphrase,omitempty" yaml:"snmpv3_privpassphrase,omitempty"`
+	Params                string        `xml:"params,allowempty" json:"params,omitempty" yaml:"params,omitempty"`
+	IpmiSensor            string        `xml:"ipmi_sensor,allowempty" json:"ipmi_sensor,omitempty" yaml:"ipmi_sensor,omitempty"`
 	Authtype              string        `xml:"authtype,allowempty" json:"authtype,omitempty" yaml:"authtype,omitempty"`
 	Username              string        `xml:"username,allowempty" json:"username,omitempty" yaml:"username,omitempty"`
 	Password              string        `xml:"password,allowempty" json:"password,omitempty" yaml:"password,omitempty"`
 	Publickey             string        `xml:"publickey,allowempty" json:"publickey,omitempty" yaml:"publickey,omitempty"`
 	Privatekey            string        `xml:"privatekey,allowempty" json:"privatekey,omitempty" yaml:"privatekey,omitempty"`
 	Port                  string        `xml:"port,allowempty" json:"port,omitempty" yaml:"port,omitempty"`
-	Params                string        `xml:"params,allowempty" json:"params,omitempty" yaml:"params,omitempty"`
 	Description           string        `xml:"description,allowempty" json:"decription,omitempty" yaml:"description,omitempty"`
 	ApplicationPrototypes []Application `xml:"application_prototypes>application_prototype,allowempty" json:"application_prototypes,omitempty" yaml:"application_prototypes,omitempty"`
 	InventoryLink         string        `xml:"inventory_link,allowempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
@@ -171,10 +181,18 @@ type ItemPrototype struct {
 	Preprocessing         []Step        `xml:"preprocessing>step,allowempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
 	JmxEndpoint           string        `xml:"jmx_endpoint,allowempty" json:"jmx_endpoint,omitempty" yaml:"jmx_endpoint,omitempty"`
 	Timeout               string        `xml:"timeout,allowempty" json:"timeout,omitempty" yaml:"timeout,omitempty"`
-	MasterItem            MasterItem    `xml:"master_item,allowempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
 	TriggerPrototypes     []Trigger     `xml:"trigger_prototypes>trigger_prototype,allowempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
 	URL                   string        `xml:"url,allowempty" json:"url,omitempty" yaml:"url,omitempty"`
 	RetrieveMode          string        `xml:"retrieve_mode,allowempty" json:"retrieve_mode,omitempty" yaml:"retrieve_mode,omitempty"`
+	RequestMethod         int           `xml:"request_method,allowempty" json:"request_method,omitempty" yaml:"request_method,omitempty"`
+	OutputFormat          int           `xml:"output_format,allowempty" json:"output_format,omitempty" yaml:"output_format,omitempty"`
+	AllowTraps            int           `xml:"allow_traps,allowempty" json:"allow_traps,omitempty" yaml:"allow_traps,omitempty"`
+	SslCertFile           string        `xml:"ssl_cert_file,allowempty" json:"ssl_cert_file,omitempty" yaml:"ssl_cert_file,omitempty"`
+	SslKeyFile            string        `xml:"ssl_key_file,allowempty" json:"ssl_key_file,omitempty" yaml:"ssl_key_file,omitempty"`
+	SslKeyPassword        string        `xml:"ssl_key_password,allowempty" json:"ssl_key_password,omitempty" yaml:"ssl_key_password,omitempty"`
+	VerifyPeer            int           `xml:"verify_peer,allowempty" json:"verify_peer,omitempty" yaml:"verify_peer,omitempty"`
+	VerifyHost            int           `xml:"verify_host,allowempty" json:"verify_host,omitempty" yaml:"verify_host,omitempty"`
+	MasterItem            MasterItem    `xml:"master_item,allowempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
 }
 
 // LldMacroPath representation
@@ -265,9 +283,13 @@ type Trigger struct {
 	RecoveryMode       string       `xml:"recovery_mode,allowempty" json:"recovery_mode,omitempty" yaml:"recovery_mode,omitempty"`
 	RecoveryExpression string       `xml:"recovery_expression,allowempty" json:"recovery_expression,omitempty" yaml:"recovery_expression,omitempty"`
 	Name               string       `xml:"name,allowempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Opdata             string       `xml:"opdata,allowempty" json:"opdata,omitempty" yaml:"opdata,omitempty"`
+	CorrelationMode    int          `xml:"correlation_mode,allowempty" json:"correlation_mode,omitempty" yaml:"correlation_mode,omitempty"`
+	CorrelationTag     string       `xml:"correlation_tag,allowempty" json:"correlation_tag,omitempty" yaml:"correlation_tag,omitempty"`
+	URL                string       `xml:"url,allowempty" json:"url,omitempty" yaml:"url,omitempty"`
+	Status             int          `xml:"status,allowempty" json:"status,omitempty" yaml:"status,omitempty"`
 	Priority           string       `xml:"priority,allowempty" json:"priority,omitempty" yaml:"priority,omitempty"`
 	Description        string       `xml:"description,allowempty" json:"description,omitempty" yaml:"description,omitempty"`
+	Type               int          `xml:"type,allowempty" json:"type,omitempty" yaml:"type,omitempty"`
 	ManualClose        string       `xml:"manual_close,allowempty" json:"manual_close,omitempty" yaml:"manual_close,omitempty"`
 	Dependencies       []Dependency `xml:"dependencies>dependency,allowempty" json:"dependencies,omitempty" yaml:"dependencies,omitempty"`
 }
