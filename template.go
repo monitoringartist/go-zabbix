@@ -171,7 +171,7 @@ type MasterItem struct {
 // Resource representation
 type Resource struct {
 	Name string `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Key  `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
+	Key  string `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
 	Host string `xml:"host,omitempty" json:"host,omitempty" yaml:"host,omitempty"`
 }
 
