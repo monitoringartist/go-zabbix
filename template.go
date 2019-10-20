@@ -11,256 +11,256 @@ type Application struct {
 
 // Condition representation
 type Condition struct {
-	Macro     string `xml:"macro,omitempty" json:"macro,omitempty" yaml:"macro,omitempty"`
-	Value     string `xml:"value,omitempty" json:"value,omitempty" yaml:"value,omitempty"`
-	Operator  string `xml:"operator,omitempty" json:"operator,omitempty" yaml:"operator,omitempty"`
-	Formulaid string `xml:"formulaid,omitempty" json:"formulaid,omitempty" yaml:"formulaid,omitempty"`
+	Macro     string `xml:"macro,allowempty" json:"macro,allowempty" yaml:"macro,allowempty"`
+	Value     string `xml:"value,allowempty" json:"value,allowempty" yaml:"value,allowempty"`
+	Operator  string `xml:"operator,allowempty" json:"operator,allowempty" yaml:"operator,allowempty"`
+	Formulaid string `xml:"formulaid,allowempty" json:"formulaid,allowempty" yaml:"formulaid,allowempty"`
 }
 
 // Dependency representation
 type Dependency struct {
 	Name               string `xml:"name"`
 	Expression         string `xml:"expression"`
-	RecoveryExpression string `xml:"recovery_expression,omitempty" json:"recovery_expression,omitempty" yaml:"recovery_expression,omitempty"`
+	RecoveryExpression string `xml:"recovery_expression,allowempty" json:"recovery_expression,allowempty" yaml:"recovery_expression,allowempty"`
 }
 
 // DiscoveryRule representation
 type DiscoveryRule struct {
-	Name              string           `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Type              string           `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	SnmpCommunity     string           `xml:"snmp_community,omitempty" json:"snmp_community,omitempty" yaml:"snmp_community,omitempty"`
-	SnmpOid           string           `xml:"snmp_oid,omitempty" json:"snmp_oid,omitempty" yaml:"snmp_oid,omitempty"`
-	Key               string           `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Delay             string           `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
-	Filter            Filter           `xml:"filter,omitempty" json:"filter,omitempty" yaml:"filter,omitempty"`
-	Description       string           `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
-	ItemPrototypes    []ItemPrototype  `xml:"item_prototypes>item_prototype,omitempty" json:"item_prototypes,omitempty" yaml:"item_prototypes,omitempty"`
-	TriggerPrototypes []Trigger        `xml:"trigger_prototypes>trigger_prototype,omitempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
-	GraphPrototypes   []GraphPrototype `xml:"graph_prototypes>graph_prototype,omitempty" json:"graph_prototypes,omitempty" yaml:"graph_prototypes,omitempty"`
-	MasterItem        MasterItem       `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
-	LldMacroPaths     []LldMacroPath   `xml:"lld_macro_paths>lld_macro_path,omitempty" json:"lld_macro_paths,omitempty" yaml:"lld_macro_paths,omitempty"`
-	Preprocessing     []Step           `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
+	Name              string           `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
+	Type              string           `xml:"type,allowempty" json:"type,allowempty" yaml:"type,allowempty"`
+	SnmpCommunity     string           `xml:"snmp_community,allowempty" json:"snmp_community,allowempty" yaml:"snmp_community,allowempty"`
+	SnmpOid           string           `xml:"snmp_oid,allowempty" json:"snmp_oid,allowempty" yaml:"snmp_oid,allowempty"`
+	Key               string           `xml:"key,allowempty" json:"key,allowempty" yaml:"key,allowempty"`
+	Delay             string           `xml:"delay,allowempty" json:"delay,allowempty" yaml:"delay,allowempty"`
+	Filter            Filter           `xml:"filter,allowempty" json:"filter,allowempty" yaml:"filter,allowempty"`
+	Description       string           `xml:"description,allowempty" json:"decription,allowempty" yaml:"description,allowempty"`
+	ItemPrototypes    []ItemPrototype  `xml:"item_prototypes>item_prototype,allowempty" json:"item_prototypes,allowempty" yaml:"item_prototypes,allowempty"`
+	TriggerPrototypes []Trigger        `xml:"trigger_prototypes>trigger_prototype,allowempty" json:"trigger_prototypes,allowempty" yaml:"trigger_prototypes,allowempty"`
+	GraphPrototypes   []GraphPrototype `xml:"graph_prototypes>graph_prototype,allowempty" json:"graph_prototypes,allowempty" yaml:"graph_prototypes,allowempty"`
+	MasterItem        MasterItem       `xml:"master_item,allowempty" json:"master_item,allowempty" yaml:"master_item,allowempty"`
+	LldMacroPaths     []LldMacroPath   `xml:"lld_macro_paths>lld_macro_path,allowempty" json:"lld_macro_paths,allowempty" yaml:"lld_macro_paths,allowempty"`
+	Preprocessing     []Step           `xml:"preprocessing>step,allowempty" json:"preprocessing,allowempty" yaml:"preprocessing,allowempty"`
 }
 
 // Filter representation
 type Filter struct {
-	Evaltype   string      `xml:"evaltype,omitempty" json:"evaltype,omitempty" yaml:"evaltype,omitempty"`
-	Conditions []Condition `xml:"conditions>condition,omitempty" json:"conditions,omitempty" yaml:"conditions,omitempty"`
+	Evaltype   string      `xml:"evaltype,allowempty" json:"evaltype,allowempty" yaml:"evaltype,allowempty"`
+	Conditions []Condition `xml:"conditions>condition,allowempty" json:"conditions,allowempty" yaml:"conditions,allowempty"`
 }
 
 // GItem representation
 type GItem struct {
-	Host string `xml:"host,omitempty" json:"host,omitempty" yaml:"host,omitempty"`
-	Key  string `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
+	Host string `xml:"host,allowempty" json:"host,allowempty" yaml:"host,allowempty"`
+	Key  string `xml:"key,allowempty" json:"key,allowempty" yaml:"key,allowempty"`
 }
 
 // Graph representation
 type Graph struct {
-	Name       string      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Width      int         `xml:"width,omitempty" json:"width,omitempty" yaml:"width,omitempty"`
-	Height     int         `xml:"height,omitempty" json:"height,omitempty" yaml:"height,omitempty"`
+	Name       string      `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
+	Width      int         `xml:"width,allowempty" json:"width,allowempty" yaml:"width,allowempty"`
+	Height     int         `xml:"height,allowempty" json:"height,allowempty" yaml:"height,allowempty"`
 	Type       string      `xml:"type,allowempty" json:"type,allowempty" yaml:"type,allowempty"`
-	YminType1  string      `xml:"ymin_type_1,omitempty" json:"ymin_type_1,omitempty" yaml:"ymin_type_1,omitempty"`
-	YmaxType1  string      `xml:"ymax_type_1,omitempty" json:"ymax_type_1,omitempty" yaml:"ymax_type_1,omitempty"`
-	Show3d     string      `xml:"show_3d,omitempty" json:"show_3d,omitempty" yaml:"show_3d,omitempty"`
-	GraphItems []GraphItem `xml:"graph_items>graph_item,omitempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
+	YminType1  string      `xml:"ymin_type_1,allowempty" json:"ymin_type_1,allowempty" yaml:"ymin_type_1,allowempty"`
+	YmaxType1  string      `xml:"ymax_type_1,allowempty" json:"ymax_type_1,allowempty" yaml:"ymax_type_1,allowempty"`
+	Show3d     string      `xml:"show_3d,allowempty" json:"show_3d,allowempty" yaml:"show_3d,allowempty"`
+	GraphItems []GraphItem `xml:"graph_items>graph_item,allowempty" json:"graph_items,allowempty" yaml:"graph_items,allowempty"`
 }
 
 // GraphItem representation
 type GraphItem struct {
-	Sortorder int    `xml:"sortorder,omitempty" json:"sortorder,omitempty" yaml:"sortorder,omitempty"`
-	Drawtype  string `xml:"drawtype,omitempty" json:"drawtype,omitempty" yaml:"drawtype,omitempty"`
-	Color     string `xml:"color,omitempty" json:"color,omitempty" yaml:"color,omitempty"`
-	Yaxisside string `xml:"yaxisside,omitempty" json:"yaxisside,omitempty" yaml:"yaxisside,omitempty"`
-	CalcFnc   string `xml:"calc_fnc,omitempty" json:"calc_fnc,omitempty" yaml:"calc_fnc,omitempty"`
-	Type      string `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	Item      GItem  `xml:"item,omitempty" json:"item,omitempty" yaml:"item,omitempty"`
+	Sortorder int    `xml:"sortorder,allowempty" json:"sortorder,allowempty" yaml:"sortorder,allowempty"`
+	Drawtype  string `xml:"drawtype,allowempty" json:"drawtype,allowempty" yaml:"drawtype,allowempty"`
+	Color     string `xml:"color,allowempty" json:"color,allowempty" yaml:"color,allowempty"`
+	Yaxisside string `xml:"yaxisside,allowempty" json:"yaxisside,allowempty" yaml:"yaxisside,allowempty"`
+	CalcFnc   string `xml:"calc_fnc,allowempty" json:"calc_fnc,allowempty" yaml:"calc_fnc,allowempty"`
+	Type      string `xml:"type,allowempty" json:"type,allowempty" yaml:"type,allowempty"`
+	Item      GItem  `xml:"item,allowempty" json:"item,allowempty" yaml:"item,allowempty"`
 }
 
 // GraphPrototype representation
 type GraphPrototype struct {
-	Name       string      `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Width      int         `xml:"width,omitempty" json:"width,omitempty" yaml:"width,omitempty"`
-	Height     int         `xml:"height,omitempty" json:"height,omitempty" yaml:"height,omitempty"`
-	Type       string      `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	YminType1  string      `xml:"ymin_type_1,omitempty" json:"ymin_type_1,omitempty" yaml:"ymin_type_1,omitempty"`
-	YmaxType1  string      `xml:"ymax_type_1,omitempty" json:"ymax_type_1,omitempty" yaml:"ymax_type_1,omitempty"`
-	Show3d     string      `xml:"show_3d,omitempty" json:"show_3d,omitempty" yaml:"show_3d,omitempty"`
-	GraphItems []GraphItem `xml:"graph_items>graph_item,omitempty" json:"graph_items,omitempty" yaml:"graph_items,omitempty"`
+	Name       string      `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
+	Width      int         `xml:"width,allowempty" json:"width,allowempty" yaml:"width,allowempty"`
+	Height     int         `xml:"height,allowempty" json:"height,allowempty" yaml:"height,allowempty"`
+	Type       string      `xml:"type,allowempty" json:"type,allowempty" yaml:"type,allowempty"`
+	YminType1  string      `xml:"ymin_type_1,allowempty" json:"ymin_type_1,allowempty" yaml:"ymin_type_1,allowempty"`
+	YmaxType1  string      `xml:"ymax_type_1,allowempty" json:"ymax_type_1,allowempty" yaml:"ymax_type_1,allowempty"`
+	Show3d     string      `xml:"show_3d,allowempty" json:"show_3d,allowempty" yaml:"show_3d,allowempty"`
+	GraphItems []GraphItem `xml:"graph_items>graph_item,allowempty" json:"graph_items,allowempty" yaml:"graph_items,allowempty"`
 }
 
 // Group representation
 type Group struct {
-	Name string `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
+	Name string `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
 }
 
 // Item representation
 type Item struct {
-	Name          string        `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Type          string        `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	SnmpCommunity string        `xml:"snmp_community,omitempty" json:"snmp_community,omitempty" yaml:"snmp_community,omitempty"`
-	SnmpOid       string        `xml:"snmp_oid,omitempty" json:"snmp_oid,omitempty" yaml:"snmp_oid,omitempty"`
-	Key           string        `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Delay         string        `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
-	History       string        `xml:"history,omitempty" json:"history,omitempty" yaml:"history,omitempty"`
-	Status        string        `xml:"status,omitempty" json:"status,omitempty" yaml:"status,omitempty"`
-	Trends        string        `xml:"trends,omitempty" json:"trends,omitempty" yaml:"trends,omitempty"`
-	ValueType     string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
-	Authtype      string        `xml:"authtype,omitempty" json:"authtype,omitempty" yaml:"authtype,omitempty"`
-	Username      string        `xml:"username,omitempty" json:"username,omitempty" yaml:"username,omitempty"`
-	Password      string        `xml:"password,omitempty" json:"password,omitempty" yaml:"password,omitempty"`
-	Units         string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
-	Params        string        `xml:"params,omitempty" json:"params,omitempty" yaml:"params,omitempty"`
-	Description   string        `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
-	InventoryLink string        `xml:"inventory_link,omitempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
-	Applications  []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
-	Logtimefmt    string        `xml:"logtimefmt,omitempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
-	ValueMap      ValueMap      `xml:"valuemap,omitempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
-	Preprocessing []Step        `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
-	MasterItem    MasterItem    `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
-	URL           string        `xml:"url,omitempty" json:"url,omitempty" yaml:"url,omitempty"`
-	RetrieveMode  string        `xml:"retrieve_mode,omitempty" json:"retrieve_mode,omitempty" yaml:"retrieve_mode,omitempty"`
-	Triggers      []Trigger     `xml:"triggers>trigger,omitempty" json:"triggers,omitempty" yaml:"triggers,omitempty"`
+	Name          string        `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
+	Type          string        `xml:"type,allowempty" json:"type,allowempty" yaml:"type,allowempty"`
+	SnmpCommunity string        `xml:"snmp_community,allowempty" json:"snmp_community,allowempty" yaml:"snmp_community,allowempty"`
+	SnmpOid       string        `xml:"snmp_oid,allowempty" json:"snmp_oid,allowempty" yaml:"snmp_oid,allowempty"`
+	Key           string        `xml:"key,allowempty" json:"key,allowempty" yaml:"key,allowempty"`
+	Delay         string        `xml:"delay,allowempty" json:"delay,allowempty" yaml:"delay,allowempty"`
+	History       string        `xml:"history,allowempty" json:"history,allowempty" yaml:"history,allowempty"`
+	Status        string        `xml:"status,allowempty" json:"status,allowempty" yaml:"status,allowempty"`
+	Trends        string        `xml:"trends,allowempty" json:"trends,allowempty" yaml:"trends,allowempty"`
+	ValueType     string        `xml:"value_type,allowempty" json:"value_type,allowempty" yaml:"value_type,allowempty"`
+	Authtype      string        `xml:"authtype,allowempty" json:"authtype,allowempty" yaml:"authtype,allowempty"`
+	Username      string        `xml:"username,allowempty" json:"username,allowempty" yaml:"username,allowempty"`
+	Password      string        `xml:"password,allowempty" json:"password,allowempty" yaml:"password,allowempty"`
+	Units         string        `xml:"units,allowempty" json:"units,allowempty" yaml:"units,allowempty"`
+	Params        string        `xml:"params,allowempty" json:"params,allowempty" yaml:"params,allowempty"`
+	Description   string        `xml:"description,allowempty" json:"decription,allowempty" yaml:"description,allowempty"`
+	InventoryLink string        `xml:"inventory_link,allowempty" json:"inventory_link,allowempty" yaml:"inventory_link,allowempty"`
+	Applications  []Application `xml:"applications>application,allowempty" json:"applications,allowempty" yaml:"applications,allowempty"`
+	Logtimefmt    string        `xml:"logtimefmt,allowempty" json:"logtimefmt,allowempty" yaml:"logtimefmt,allowempty"`
+	ValueMap      ValueMap      `xml:"valuemap,allowempty" json:"valuemap,allowempty" yaml:"valuemap,allowempty"`
+	Preprocessing []Step        `xml:"preprocessing>step,allowempty" json:"preprocessing,allowempty" yaml:"preprocessing,allowempty"`
+	MasterItem    MasterItem    `xml:"master_item,allowempty" json:"master_item,allowempty" yaml:"master_item,allowempty"`
+	URL           string        `xml:"url,allowempty" json:"url,allowempty" yaml:"url,allowempty"`
+	RetrieveMode  string        `xml:"retrieve_mode,allowempty" json:"retrieve_mode,allowempty" yaml:"retrieve_mode,allowempty"`
+	Triggers      []Trigger     `xml:"triggers>trigger,allowempty" json:"triggers,allowempty" yaml:"triggers,allowempty"`
 }
 
 // ItemPrototype representation
 type ItemPrototype struct {
-	Name                  string        `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Type                  string        `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	SnmpCommunity         string        `xml:"snmp_community,omitempty" json:"snmp_community,omitempty" yaml:"snmp_community,omitempty"`
-	SnmpOid               string        `xml:"snmp_oid,omitempty" json:"snmp_oid,omitempty" yaml:"snmp_oid,omitempty"`
-	Key                   string        `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Delay                 string        `xml:"delay,omitempty" json:"delay,omitempty" yaml:"delay,omitempty"`
-	History               string        `xml:"history,omitempty" json:"history,omitempty" yaml:"history,omitempty"`
-	Trends                string        `xml:"trends,omitempty" json:"trends,omitempty" yaml:"trends,omitempty"`
-	ValueType             string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
-	Authtype              string        `xml:"authtype,omitempty" json:"authtype,omitempty" yaml:"authtype,omitempty"`
-	Username              string        `xml:"username,omitempty" json:"username,omitempty" yaml:"username,omitempty"`
-	Password              string        `xml:"password,omitempty" json:"password,omitempty" yaml:"password,omitempty"`
-	Units                 string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
-	Params                string        `xml:"params,omitempty" json:"params,omitempty" yaml:"params,omitempty"`
-	Description           string        `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
-	ApplicationPrototypes []Application `xml:"application_prototypes>application_prototype,omitempty" json:"application_prototypes,omitempty" yaml:"application_prototypes,omitempty"`
-	InventoryLink         string        `xml:"inventory_link,omitempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
-	Applications          []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
-	Logtimefmt            string        `xml:"logtimefmt,omitempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
-	ValueMap              ValueMap      `xml:"valuemap,omitempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
-	Preprocessing         []Step        `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
-	MasterItem            MasterItem    `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
-	TriggerPrototypes     []Trigger     `xml:"trigger_prototypes>trigger_prototype,omitempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
-	URL                   string        `xml:"url,omitempty" json:"url,omitempty" yaml:"url,omitempty"`
-	RetrieveMode          string        `xml:"retrieve_mode,omitempty" json:"retrieve_mode,omitempty" yaml:"retrieve_mode,omitempty"`
+	Name                  string        `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
+	Type                  string        `xml:"type,allowempty" json:"type,allowempty" yaml:"type,allowempty"`
+	SnmpCommunity         string        `xml:"snmp_community,allowempty" json:"snmp_community,allowempty" yaml:"snmp_community,allowempty"`
+	SnmpOid               string        `xml:"snmp_oid,allowempty" json:"snmp_oid,allowempty" yaml:"snmp_oid,allowempty"`
+	Key                   string        `xml:"key,allowempty" json:"key,allowempty" yaml:"key,allowempty"`
+	Delay                 string        `xml:"delay,allowempty" json:"delay,allowempty" yaml:"delay,allowempty"`
+	History               string        `xml:"history,allowempty" json:"history,allowempty" yaml:"history,allowempty"`
+	Trends                string        `xml:"trends,allowempty" json:"trends,allowempty" yaml:"trends,allowempty"`
+	ValueType             string        `xml:"value_type,allowempty" json:"value_type,allowempty" yaml:"value_type,allowempty"`
+	Authtype              string        `xml:"authtype,allowempty" json:"authtype,allowempty" yaml:"authtype,allowempty"`
+	Username              string        `xml:"username,allowempty" json:"username,allowempty" yaml:"username,allowempty"`
+	Password              string        `xml:"password,allowempty" json:"password,allowempty" yaml:"password,allowempty"`
+	Units                 string        `xml:"units,allowempty" json:"units,allowempty" yaml:"units,allowempty"`
+	Params                string        `xml:"params,allowempty" json:"params,allowempty" yaml:"params,allowempty"`
+	Description           string        `xml:"description,allowempty" json:"decription,allowempty" yaml:"description,allowempty"`
+	ApplicationPrototypes []Application `xml:"application_prototypes>application_prototype,allowempty" json:"application_prototypes,allowempty" yaml:"application_prototypes,allowempty"`
+	InventoryLink         string        `xml:"inventory_link,allowempty" json:"inventory_link,allowempty" yaml:"inventory_link,allowempty"`
+	Applications          []Application `xml:"applications>application,allowempty" json:"applications,allowempty" yaml:"applications,allowempty"`
+	Logtimefmt            string        `xml:"logtimefmt,allowempty" json:"logtimefmt,allowempty" yaml:"logtimefmt,allowempty"`
+	ValueMap              ValueMap      `xml:"valuemap,allowempty" json:"valuemap,allowempty" yaml:"valuemap,allowempty"`
+	Preprocessing         []Step        `xml:"preprocessing>step,allowempty" json:"preprocessing,allowempty" yaml:"preprocessing,allowempty"`
+	MasterItem            MasterItem    `xml:"master_item,allowempty" json:"master_item,allowempty" yaml:"master_item,allowempty"`
+	TriggerPrototypes     []Trigger     `xml:"trigger_prototypes>trigger_prototype,allowempty" json:"trigger_prototypes,allowempty" yaml:"trigger_prototypes,allowempty"`
+	URL                   string        `xml:"url,allowempty" json:"url,allowempty" yaml:"url,allowempty"`
+	RetrieveMode          string        `xml:"retrieve_mode,allowempty" json:"retrieve_mode,allowempty" yaml:"retrieve_mode,allowempty"`
 }
 
 // LldMacroPath representation
 type LldMacroPath struct {
-	LldMacro string `xml:"lld_macro,omitempty" json:"lld_macro,omitempty" yaml:"lld_macro,omitempty"`
-	Path     string `xml:"path,omitempty" json:"path,omitempty" yaml:"path,omitempty"`
+	LldMacro string `xml:"lld_macro,allowempty" json:"lld_macro,allowempty" yaml:"lld_macro,allowempty"`
+	Path     string `xml:"path,allowempty" json:"path,allowempty" yaml:"path,allowempty"`
 }
 
 // Macro representation
 type Macro struct {
-	Macro       string `xml:"macro,omitempty" json:"macro,omitempty" yaml:"macro,omitempty"`
-	Value       string `xml:"value,omitempty" json:"value,omitempty" yaml:"value,omitempty"`
-	Description string `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
+	Macro       string `xml:"macro,allowempty" json:"macro,allowempty" yaml:"macro,allowempty"`
+	Value       string `xml:"value,allowempty" json:"value,allowempty" yaml:"value,allowempty"`
+	Description string `xml:"description,allowempty" json:"description,allowempty" yaml:"description,allowempty"`
 }
 
 // Mapping representation
 type Mapping struct {
-	Value    string `xml:"value,omitempty" json:"value,omitempty" yaml:"value,omitempty"`
-	Newvalue string `xml:"newvalue,omitempty" json:"newvalue,omitempty" yaml:"newvalue,omitempty"`
+	Value    string `xml:"value,allowempty" json:"value,allowempty" yaml:"value,allowempty"`
+	Newvalue string `xml:"newvalue,allowempty" json:"newvalue,allowempty" yaml:"newvalue,allowempty"`
 }
 
 // MasterItem representation
 type MasterItem struct {
-	Key string `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
+	Key string `xml:"key,allowempty" json:"key,allowempty" yaml:"key,allowempty"`
 }
 
 // Resource representation
 type Resource struct {
-	Name string `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Key  string `xml:"key,omitempty" json:"key,omitempty" yaml:"key,omitempty"`
-	Host string `xml:"host,omitempty" json:"host,omitempty" yaml:"host,omitempty"`
+	Name string `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
+	Key  string `xml:"key,allowempty" json:"key,allowempty" yaml:"key,allowempty"`
+	Host string `xml:"host,allowempty" json:"host,allowempty" yaml:"host,allowempty"`
 }
 
 // Screen representation
 type Screen struct {
-	Name        string       `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Hsize       int          `xml:"hsize,omitempty" json:"hsize,omitempty" yaml:"hsize,omitempty"`
-	Vsize       int          `xml:"vsize,omitempty" json:"vsize,omitempty" yaml:"vsize,omitempty"`
-	ScreenItems []ScreenItem `xml:"screen_items>screen_item,omitempty" json:"screen_items,omitempty" yaml:"screen_items,omitempty"`
+	Name        string       `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
+	Hsize       int          `xml:"hsize,allowempty" json:"hsize,allowempty" yaml:"hsize,allowempty"`
+	Vsize       int          `xml:"vsize,allowempty" json:"vsize,allowempty" yaml:"vsize,allowempty"`
+	ScreenItems []ScreenItem `xml:"screen_items>screen_item,allowempty" json:"screen_items,allowempty" yaml:"screen_items,allowempty"`
 }
 
 // ScreenItem representation
 type ScreenItem struct {
-	Resourcetype int      `xml:"resourcetype" json:"resourcetype,omitempty" yaml:"resourcetype,omitempty"`
-	Style        int      `xml:"style" json:"style,omitempty" yaml:"style,omitempty"`
-	Resource     Resource `xml:"resource,omitempty" json:"resource,omitempty" yaml:"resource,omitempty"`
-	Width        int      `xml:"width,omitempty" json:"width,omitempty" yaml:"width,omitempty"`
-	Height       int      `xml:"height,omitempty" json:"height,omitempty" yaml:"height,omitempty"`
+	Resourcetype int      `xml:"resourcetype" json:"resourcetype,allowempty" yaml:"resourcetype,allowempty"`
+	Style        int      `xml:"style" json:"style,allowempty" yaml:"style,allowempty"`
+	Resource     Resource `xml:"resource,allowempty" json:"resource,allowempty" yaml:"resource,allowempty"`
+	Width        int      `xml:"width,allowempty" json:"width,allowempty" yaml:"width,allowempty"`
+	Height       int      `xml:"height,allowempty" json:"height,allowempty" yaml:"height,allowempty"`
 	X            int      `xml:"x" json:"x" yaml:"x"`
 	Y            int      `xml:"y" json:"y" yaml:"y"`
-	Colspan      int      `xml:"colspan,omitempty" json:"colspan,omitempty" yaml:"colspan,omitempty"`
-	Rowspan      int      `xml:"rowspan,omitempty" json:"rowspan,omitempty" yaml:"rowspan,omitempty"`
-	Elements     int      `xml:"elements,omitempty" json:"elements,omitempty" yaml:"elements,omitempty"`
-	Valign       int      `xml:"valign" json:"valign,omitempty" yaml:"valign,omitempty"`
-	Halign       int      `xml:"halign" json:"halign,omitempty" yaml:"halign,omitempty"`
-	Dynamic      int      `xml:"dynamic" json:"dynamic,omitempty" yaml:"dynamic,omitempty"`
-	SortTriggers int      `xml:"sort_triggers" json:"sort_triggers,omitempty" yaml:"sort_triggers,omitempty"`
-	URL          string   `xml:"url" json:"url,omitempty" yaml:"url,omitempty"`
-	Application  string   `xml:"application" json:"application,omitempty" yaml:"application,omitempty"`
-	MaxColumns   int      `xml:"max_columns,omitempty" json:"max_columns,omitempty" yaml:"max_columns,omitempty"`
+	Colspan      int      `xml:"colspan,allowempty" json:"colspan,allowempty" yaml:"colspan,allowempty"`
+	Rowspan      int      `xml:"rowspan,allowempty" json:"rowspan,allowempty" yaml:"rowspan,allowempty"`
+	Elements     int      `xml:"elements,allowempty" json:"elements,allowempty" yaml:"elements,allowempty"`
+	Valign       int      `xml:"valign" json:"valign,allowempty" yaml:"valign,allowempty"`
+	Halign       int      `xml:"halign" json:"halign,allowempty" yaml:"halign,allowempty"`
+	Dynamic      int      `xml:"dynamic" json:"dynamic,allowempty" yaml:"dynamic,allowempty"`
+	SortTriggers int      `xml:"sort_triggers" json:"sort_triggers,allowempty" yaml:"sort_triggers,allowempty"`
+	URL          string   `xml:"url" json:"url,allowempty" yaml:"url,allowempty"`
+	Application  string   `xml:"application" json:"application,allowempty" yaml:"application,allowempty"`
+	MaxColumns   int      `xml:"max_columns,allowempty" json:"max_columns,allowempty" yaml:"max_columns,allowempty"`
 }
 
 // Step representation
 type Step struct {
-	Type               string `xml:"type,omitempty" json:"type,omitempty" yaml:"type,omitempty"`
-	Params             string `xml:"params" json:"params,omitempty" yaml:"params,omitempty"`
-	ErrorHandler       string `xml:"error_handler,omitempty" json:"error_handler,omitempty" yaml:"error_handler,omitempty"`
-	ErrorHandlerParams string `xml:"error_handler_params,omitempty" json:"error_handler_params,omitempty" yaml:"error_handler_params,omitempty"`
+	Type               string `xml:"type,allowempty" json:"type,allowempty" yaml:"type,allowempty"`
+	Params             string `xml:"params" json:"params,allowempty" yaml:"params,allowempty"`
+	ErrorHandler       string `xml:"error_handler,allowempty" json:"error_handler,allowempty" yaml:"error_handler,allowempty"`
+	ErrorHandlerParams string `xml:"error_handler_params,allowempty" json:"error_handler_params,allowempty" yaml:"error_handler_params,allowempty"`
 }
 
 // Template representation
 type Template struct {
-	Template       string          `xml:"template,omitempty" json:"template,omitempty" yaml:"template,omitempty"`
-	Name           string          `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Description    string          `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
-	Templates      []Template      `xml:"templates>template,omitempty" json:"templates,omitempty" yaml:"templates,omitempty"`
-	Groups         []Group         `xml:"groups>group,omitempty" json:"groups,omitempty" yaml:"groups,omitempty"`
-	Applications   []Application   `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
-	Items          []Item          `xml:"items>item,omitempty" json:"items,omitempty" yaml:"items,omitempty"`
-	DiscoveryRules []DiscoveryRule `xml:"discovery_rules>discovery_rule,omitempty" json:"discovery_rules,omitempty" yaml:"discovery_rules,omitempty"`
-	Macros         []Macro         `xml:"macros>macro,omitempty" json:"macros,omitempty" yaml:"macros,omitempty"`
-	Screens        []Screen        `xml:"screens>screen,omitempty" json:"screens,omitempty" yaml:"screens,omitempty"`
+	Template       string          `xml:"template,allowempty" json:"template,allowempty" yaml:"template,allowempty"`
+	Name           string          `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
+	Description    string          `xml:"description,allowempty" json:"description,allowempty" yaml:"description,allowempty"`
+	Templates      []Template      `xml:"templates>template,allowempty" json:"templates,allowempty" yaml:"templates,allowempty"`
+	Groups         []Group         `xml:"groups>group,allowempty" json:"groups,allowempty" yaml:"groups,allowempty"`
+	Applications   []Application   `xml:"applications>application,allowempty" json:"applications,allowempty" yaml:"applications,allowempty"`
+	Items          []Item          `xml:"items>item,allowempty" json:"items,allowempty" yaml:"items,allowempty"`
+	DiscoveryRules []DiscoveryRule `xml:"discovery_rules>discovery_rule,allowempty" json:"discovery_rules,allowempty" yaml:"discovery_rules,allowempty"`
+	Macros         []Macro         `xml:"macros>macro,allowempty" json:"macros,allowempty" yaml:"macros,allowempty"`
+	Screens        []Screen        `xml:"screens>screen,allowempty" json:"screens,allowempty" yaml:"screens,allowempty"`
 }
 
 // Trigger representation
 type Trigger struct {
-	Expression         string       `xml:"expression,omitempty" json:"expression,omitempty" yaml:"expression,omitempty"`
-	RecoveryMode       string       `xml:"recovery_mode,omitempty" json:"recovery_mode,omitempty" yaml:"recovery_mode,omitempty"`
-	RecoveryExpression string       `xml:"recovery_expression,omitempty" json:"recovery_expression,omitempty" yaml:"recovery_expression,omitempty"`
-	Name               string       `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Opdata             string       `xml:"opdata,omitempty" json:"opdata,omitempty" yaml:"opdata,omitempty"`
-	Priority           string       `xml:"priority,omitempty" json:"priority,omitempty" yaml:"priority,omitempty"`
-	Description        string       `xml:"description,omitempty" json:"description,omitempty" yaml:"description,omitempty"`
-	ManualClose        string       `xml:"manual_close,omitempty" json:"manual_close,omitempty" yaml:"manual_close,omitempty"`
-	Dependencies       []Dependency `xml:"dependencies>dependency,omitempty" json:"dependencies,omitempty" yaml:"dependencies,omitempty"`
+	Expression         string       `xml:"expression,allowempty" json:"expression,allowempty" yaml:"expression,allowempty"`
+	RecoveryMode       string       `xml:"recovery_mode,allowempty" json:"recovery_mode,allowempty" yaml:"recovery_mode,allowempty"`
+	RecoveryExpression string       `xml:"recovery_expression,allowempty" json:"recovery_expression,allowempty" yaml:"recovery_expression,allowempty"`
+	Name               string       `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
+	Opdata             string       `xml:"opdata,allowempty" json:"opdata,allowempty" yaml:"opdata,allowempty"`
+	Priority           string       `xml:"priority,allowempty" json:"priority,allowempty" yaml:"priority,allowempty"`
+	Description        string       `xml:"description,allowempty" json:"description,allowempty" yaml:"description,allowempty"`
+	ManualClose        string       `xml:"manual_close,allowempty" json:"manual_close,allowempty" yaml:"manual_close,allowempty"`
+	Dependencies       []Dependency `xml:"dependencies>dependency,allowempty" json:"dependencies,allowempty" yaml:"dependencies,allowempty"`
 }
 
 // ValueMap representation
 type ValueMap struct {
-	Name     string    `xml:"name,omitempty" json:"name,omitempty" yaml:"name,omitempty"`
-	Mappings []Mapping `xml:"mappings>mapping,omitempty" json:"mappings,omitempty" yaml:"mappings,omitempty"`
+	Name     string    `xml:"name,allowempty" json:"name,allowempty" yaml:"name,allowempty"`
+	Mappings []Mapping `xml:"mappings>mapping,allowempty" json:"mappings,allowempty" yaml:"mappings,allowempty"`
 }
 
 // ZabbixExport representation
 type ZabbixExport struct {
 	XMLName   xml.Name   `xml:"zabbix_export" json:"-" yaml:"-"`
-	Version   string     `xml:"version,omitempty" json:"version,omitempty" yaml:"version,omitempty"`
-	Date      string     `xml:"date,omitempty" json:"date,omitempty" yaml:"date,omitempty"`
-	Groups    []Group    `xml:"groups>group,omitempty" json:"groups,omitempty" yaml:"groups,omitempty"`
-	Templates []Template `xml:"templates>template,omitempty" json:"templates,omitempty" yaml:"templates,omitempty"`
-	Triggers  []Trigger  `xml:"triggers>trigger,omitempty" json:"triggers,omitempty" yaml:"triggers,omitempty"`
-	Graphs    []Graph    `xml:"graphs>graph,omitempty" json:"graphs,omitempty" yaml:"graphs,omitempty"`
-	ValueMaps []ValueMap `xml:"value_maps>value_map,omitempty" json:"value_maps,omitempty" yaml:"value_maps,omitempty"`
+	Version   string     `xml:"version,allowempty" json:"version,allowempty" yaml:"version,allowempty"`
+	Date      string     `xml:"date,allowempty" json:"date,allowempty" yaml:"date,allowempty"`
+	Groups    []Group    `xml:"groups>group,allowempty" json:"groups,allowempty" yaml:"groups,allowempty"`
+	Templates []Template `xml:"templates>template,allowempty" json:"templates,allowempty" yaml:"templates,allowempty"`
+	Triggers  []Trigger  `xml:"triggers>trigger,allowempty" json:"triggers,allowempty" yaml:"triggers,allowempty"`
+	Graphs    []Graph    `xml:"graphs>graph,allowempty" json:"graphs,allowempty" yaml:"graphs,allowempty"`
+	ValueMaps []ValueMap `xml:"value_maps>value_map,allowempty" json:"value_maps,allowempty" yaml:"value_maps,allowempty"`
 }
