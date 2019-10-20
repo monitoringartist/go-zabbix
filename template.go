@@ -103,19 +103,20 @@ type Item struct {
 	Key           string        `xml:"key,allowempty" json:"key,omitempty" yaml:"key,omitempty"`
 	Delay         string        `xml:"delay,allowempty" json:"delay,omitempty" yaml:"delay,omitempty"`
 	History       string        `xml:"history,allowempty" json:"history,omitempty" yaml:"history,omitempty"`
-	Status        string        `xml:"status,allowempty" json:"status,omitempty" yaml:"status,omitempty"`
 	Trends        string        `xml:"trends,allowempty" json:"trends,omitempty" yaml:"trends,omitempty"`
+	Status        string        `xml:"status,allowempty" json:"status,omitempty" yaml:"status,omitempty"`
 	ValueType     string        `xml:"value_type,allowempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
+	AllowedHosts  string        `xml:"allowed_hosts,allowempty" json:"allowed_hosts,omitempty" yaml:"allowed_hosts,omitempty"`
+	Units         string        `xml:"units,allowempty" json:"units,omitempty" yaml:"units,omitempty"`
 	Authtype      string        `xml:"authtype,allowempty" json:"authtype,omitempty" yaml:"authtype,omitempty"`
 	Username      string        `xml:"username,allowempty" json:"username,omitempty" yaml:"username,omitempty"`
 	Password      string        `xml:"password,allowempty" json:"password,omitempty" yaml:"password,omitempty"`
-	Units         string        `xml:"units,allowempty" json:"units,omitempty" yaml:"units,omitempty"`
 	Params        string        `xml:"params,allowempty" json:"params,omitempty" yaml:"params,omitempty"`
 	Description   string        `xml:"description,allowempty" json:"decription,omitempty" yaml:"description,omitempty"`
 	InventoryLink string        `xml:"inventory_link,allowempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
 	Applications  []Application `xml:"applications>application,allowempty" json:"applications,omitempty" yaml:"applications,omitempty"`
-	Logtimefmt    string        `xml:"logtimefmt,allowempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
 	ValueMap      ValueMap      `xml:"valuemap,allowempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
+	Logtimefmt    string        `xml:"logtimefmt,allowempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
 	Preprocessing []Step        `xml:"preprocessing>step,allowempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
 	MasterItem    MasterItem    `xml:"master_item,allowempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
 	URL           string        `xml:"url,allowempty" json:"url,omitempty" yaml:"url,omitempty"`
@@ -133,7 +134,9 @@ type ItemPrototype struct {
 	Delay                 string        `xml:"delay,allowempty" json:"delay,omitempty" yaml:"delay,omitempty"`
 	History               string        `xml:"history,allowempty" json:"history,omitempty" yaml:"history,omitempty"`
 	Trends                string        `xml:"trends,allowempty" json:"trends,omitempty" yaml:"trends,omitempty"`
+	Status                string        `xml:"status,allowempty" json:"status,omitempty" yaml:"status,omitempty"`
 	ValueType             string        `xml:"value_type,allowempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
+	AllowedHosts          string        `xml:"allowed_hosts,allowempty" json:"allowed_hosts,omitempty" yaml:"allowed_hosts,omitempty"`
 	Authtype              string        `xml:"authtype,allowempty" json:"authtype,omitempty" yaml:"authtype,omitempty"`
 	Username              string        `xml:"username,allowempty" json:"username,omitempty" yaml:"username,omitempty"`
 	Password              string        `xml:"password,allowempty" json:"password,omitempty" yaml:"password,omitempty"`
@@ -143,8 +146,8 @@ type ItemPrototype struct {
 	ApplicationPrototypes []Application `xml:"application_prototypes>application_prototype,allowempty" json:"application_prototypes,omitempty" yaml:"application_prototypes,omitempty"`
 	InventoryLink         string        `xml:"inventory_link,allowempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
 	Applications          []Application `xml:"applications>application,allowempty" json:"applications,omitempty" yaml:"applications,omitempty"`
-	Logtimefmt            string        `xml:"logtimefmt,allowempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
 	ValueMap              ValueMap      `xml:"valuemap,allowempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
+	Logtimefmt            string        `xml:"logtimefmt,allowempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
 	Preprocessing         []Step        `xml:"preprocessing>step,allowempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
 	MasterItem            MasterItem    `xml:"master_item,allowempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
 	TriggerPrototypes     []Trigger     `xml:"trigger_prototypes>trigger_prototype,allowempty" json:"trigger_prototypes,omitempty" yaml:"trigger_prototypes,omitempty"`
