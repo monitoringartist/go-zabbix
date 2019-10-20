@@ -106,11 +106,15 @@ type Item struct {
 	Status        string        `xml:"status,omitempty" json:"status,omitempty" yaml:"status,omitempty"`
 	Trends        string        `xml:"trends,omitempty" json:"trends,omitempty" yaml:"trends,omitempty"`
 	ValueType     string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
+	Authtype      string        `xml:"authtype,omitempty" json:"authtype,omitempty" yaml:"authtype,omitempty"`
+	Username      string        `xml:"username,omitempty" json:"username,omitempty" yaml:"username,omitempty"`
+	Password      string        `xml:"password,omitempty" json:"password,omitempty" yaml:"password,omitempty"`
 	Units         string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
 	Params        string        `xml:"params,omitempty" json:"params,omitempty" yaml:"params,omitempty"`
 	Description   string        `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
 	InventoryLink string        `xml:"inventory_link,omitempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
 	Applications  []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
+	Logtimefmt    string        `xml:"logtimefmt,omitempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
 	ValueMap      ValueMap      `xml:"valuemap,omitempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
 	Preprocessing []Step        `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
 	MasterItem    MasterItem    `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
@@ -130,12 +134,16 @@ type ItemPrototype struct {
 	History               string        `xml:"history,omitempty" json:"history,omitempty" yaml:"history,omitempty"`
 	Trends                string        `xml:"trends,omitempty" json:"trends,omitempty" yaml:"trends,omitempty"`
 	ValueType             string        `xml:"value_type,omitempty" json:"value_type,omitempty" yaml:"value_type,omitempty"`
+	Authtype              string        `xml:"authtype,omitempty" json:"authtype,omitempty" yaml:"authtype,omitempty"`
+	Username              string        `xml:"username,omitempty" json:"username,omitempty" yaml:"username,omitempty"`
+	Password              string        `xml:"password,omitempty" json:"password,omitempty" yaml:"password,omitempty"`
 	Units                 string        `xml:"units,omitempty" json:"units,omitempty" yaml:"units,omitempty"`
 	Params                string        `xml:"params,omitempty" json:"params,omitempty" yaml:"params,omitempty"`
 	Description           string        `xml:"description,omitempty" json:"decription,omitempty" yaml:"description,omitempty"`
 	ApplicationPrototypes []Application `xml:"application_prototypes>application_prototype,omitempty" json:"application_prototypes,omitempty" yaml:"application_prototypes,omitempty"`
 	InventoryLink         string        `xml:"inventory_link,omitempty" json:"inventory_link,omitempty" yaml:"inventory_link,omitempty"`
 	Applications          []Application `xml:"applications>application,omitempty" json:"applications,omitempty" yaml:"applications,omitempty"`
+	Logtimefmt            string        `xml:"logtimefmt,omitempty" json:"logtimefmt,omitempty" yaml:"logtimefmt,omitempty"`
 	ValueMap              ValueMap      `xml:"valuemap,omitempty" json:"valuemap,omitempty" yaml:"valuemap,omitempty"`
 	Preprocessing         []Step        `xml:"preprocessing>step,omitempty" json:"preprocessing,omitempty" yaml:"preprocessing,omitempty"`
 	MasterItem            MasterItem    `xml:"master_item,omitempty" json:"master_item,omitempty" yaml:"master_item,omitempty"`
